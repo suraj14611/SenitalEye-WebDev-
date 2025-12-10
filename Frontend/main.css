@@ -1,0 +1,225 @@
+/* main.css */
+:root {
+  --bg: #0f172a;
+  --card-bg: #020617;
+  --accent: #22c55e;
+  --accent-soft: rgba(34, 197, 94, 0.15);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --danger: #ef4444;
+  --border: #1f2937;
+  --radius: 10px;
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px 16px;
+  margin: 0 auto
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.header-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border: 1px solid var(--accent-soft);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), transparent);
+  color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 18px;
+  align-items: flex-start
+}
+
+.card {
+  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 42%),
+              radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.16), transparent 48%),
+              var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  box-shadow: var(--shadow);
+  padding: 14px 16px 16px;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 0, rgba(148, 163, 184, 0.25), transparent 65%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.9), transparent 60%);
+  mix-blend-mode: soft-light;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.chip {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+  color: var(--text);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: all 0.16s ease-out;
+}
+
+.button:hover {
+  border-color: rgba(34, 197, 94, 0.65);
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.9);
+}
+
+.button-primary {
+  border-color: rgba(34, 197, 94, 0.85);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #02120a;
+  font-weight: 600;
+}
+
+.button-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 12px 26px rgba(34, 197, 94, 0.55);
+}
+
+/* Upload section */
+
+.upload-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+input[type="file"] {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+#uploadStatus {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Log viewer */
+
+#logViewer {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 11px;
+  max-height: 240px;
+  overflow-y: auto;
+  white-space: pre;
+  color: #e5e7eb;
+}
+
+/* Chart */
+
+#statusChart {
+  max-width: 100%;
+}
+section {
+  margin-bottom: 8px;
+}
+
+/* Threat panel */
+
+#threatOutput {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 8px;
+  border: 1px solid rgba(220, 252, 231, 0.06);
+  padding: 10px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 11px;
+  max-height: 260px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  color: #bbf7d0;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

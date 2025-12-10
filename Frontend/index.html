@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SenitalEye Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="grid">
+  <h1>SenitalEye</h1>
+
+  <section>
+    <h2>Upload Logs</h2>
+    <input type="file" id="logFile">
+    <button id="uploadBtn">Upload</button>
+    <div id="uploadStatus"></div>
+
+  </section>
+
+  <section>
+    <h2>Live Logs</h2>
+    <pre id="logViewer" style="max-height:200px; overflow:auto;"></pre>
+  </section>
+
+  <section>
+    <h2>Stats</h2>
+    <canvas id="statusChart" width="300" height="300"></canvas>
+  </section>
+
+  <section>
+    <h2>Threat Panel</h2>
+    <button id="analyzeBtn">Run AI Analysis</button>
+    <pre id="threatOutput"></pre>
+  </section>
+
+  <script src="main.js"></script>
+  </div>
+</body>
+</html>
